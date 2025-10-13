@@ -58,9 +58,19 @@ class Admin_perpus extends BaseController
     {
         $data = [
             'title' => 'Detail Buku',
-            'buku'  => $this->perpusModel->find($id)
+            'detail'  => $this->perpusModel->find($id)
         ];
 
         return view('buku/v_detail_buku', $data);
+    }
+
+    public function edit($id)
+    {
+        $data = [
+            'title' => 'Edit Buku',
+            'edit'  => $this->perpusModel->find($id),
+            'kategori' => $this->kategoriModel->findAll()
+        ];
+        return view('buku/v_edit_buku', $data);
     }
 }
