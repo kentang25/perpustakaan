@@ -6,7 +6,7 @@ Class M_perpustakaan extends Model{
 
     protected $table = 'tb_buku';
     protected $primaryKey = 'id';
-    protected $allowedFields = ['judul', 'pengarang', 'penerbit', 'gambar'];
+    protected $allowedFields = ['judul', 'pengarang', 'penerbit', 'gambar', 'id_kategori'];
 
     public function getAllBuku()
     {

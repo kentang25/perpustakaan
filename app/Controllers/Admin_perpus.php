@@ -2,21 +2,25 @@
 
 namespace App\Controllers;
 use App\Models\M_perpustakaan;
+use App\Models\M_kategori;
 
 class Admin_perpus extends BaseController
 {
     protected $perpusModel;
+    protected $kategoriModel;
 
     public function __construct()
     {
         $this->perpusModel = new M_perpustakaan();
+        $this->kategoriModel = new M_kategori();
     }
 
     public function index(): string
     {
         $data = [
-            'title' => 'Perpustakaan',
-            'buku' => $this->perpusModel->findAll()
+            'title'     => 'Perpustakaan',
+            'buku'      => $this->perpusModel->getAllBuku(),
+            'kategori'  => $this->kategoriModel->findAll()
         ];
         // dd($data);
 
@@ -43,10 +47,20 @@ class Admin_perpus extends BaseController
                 'judul'     => $this->request->getPost('judul'),
                 'pengarang' => $this->request->getPost('pengarang'),
                 'penerbit'  => $this->request->getPost('penerbit'),
-                
+                'id_kategori' => $this->request->getPost('kategori'),
                 'gambar'    => $namagambar
             ]);
 
-            return redirect()->to('/');
+            return redirect()->to('/admin_perpus');
+    }
+
+    public function detail($id)
+    {
+        $data = [
+            'title' => 'Detail Buku',
+            'buku'  => $this->perpusModel->find($id)
+        ];
+
+        return view('buku/v_detail_buku', $data);
     }
 }
