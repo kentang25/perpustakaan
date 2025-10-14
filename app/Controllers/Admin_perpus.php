@@ -73,4 +73,81 @@ class Admin_perpus extends BaseController
         ];
         return view('buku/v_edit_buku', $data);
     }
+
+    public function update($id)
+    {
+        $bukuLama = $this->perpusModel->find($id);
+
+        if(!$bukuLama){
+            throw new \CodeIgniter\Exceptions\PageNotFoundException('Buku dengan ID ' . $id . ' tidak ditemukan.');
+        }
+
+        $rules = ($bukuLama['judul'] === $this->request->getPost('judul')) ? 'required' : 'required|is_unique[buku.judul]';
+
+        if(!$this->validate([
+            'judul' =>[
+                'rules' => $rules,
+                'errors' => [
+                    'required' => '{field} buku harus diisi.',
+                    'is_unique' => '{field} buku sudah terdaftar.'
+                ]
+            ],
+                'pengarang' =>[
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => '{field} buku harus diisi.'
+                    ]
+                    ],
+                'penerbit' =>[
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => '{field} buku harus diisi.'
+                ]
+                ],
+                'gambar' =>[
+                    'rules' => 'max_size[gambar,1024]|is_image[gambar]|mime_in[gambar,image/jpg,image/jpeg,image/png]',
+                    'errors' => [
+                        'max_size' => 'Ukuran {field} terlalu besar.',
+                        'is_image' => 'Yang anda pilih bukan gambar.',
+                        'mime_in' => 'Yang anda pilih bukan gambar.'
+                ]
+                ]
+        ])){
+            return redirect()->to('/admin_perpus/edit/' . $id)->withInput();
+        }
+
+        $filegambar = $this->request->getFile('gambar');
+        if($filegambar->getError() == 4){
+            $namegambar = $this->request->getPost('gambarLama');
+        }else{
+            $namegambar = $filegambar->getRandomName();
+            $filegambar->move('img', $namegambar);
+            if($bukuLama['gambar'] != 'default.jpg'){
+                unlink('img/' . $bukuLama['gambar']);
+            }
+        }
+
+        $this->perpusModel->save([
+            'id'        => $id,
+            'judul'     => $this->request->getPost('judul'),
+            'pengarang' => $this->request->getPost('pengarang'),
+            'penerbit'  => $this->request->getPost('penerbit'),
+            'id_kategori' => $this->request->getPost('kategori'),
+            'gambar'    => $namegambar
+        ]);
+
+        // session->setFlashdata('pesan', 'Data berhasil diupdate.');
+        return redirect()->to('/admin_perpus');
+    }
+
+    public function delete($id)
+    {
+        $buku = $this->perpusModel->find($id);
+        if($buku['gambar'] != 'default.jpg'){
+            unlink('img/' . $buku['gambar']);
+        }
+            $this->perpusModel->delete($id);
+            return redirect()->to('/admin_perpus');
+        
+    }
 }

@@ -66,9 +66,7 @@
                             <th>No</th>
                             <th>Judul</th>
                             <th>Pengarang</th>
-                            <th>Penerbit</th>
                             <th>Kategori</th>
-                            <th>Gambar</th>
                             <th>aksi</th>
                         </tr>
                     </thead>
@@ -79,15 +77,12 @@
                             <td><?= $no++ ?></td>
                             <td><?= $b['judul'] ?></td>
                             <td><?= $b['pengarang'] ?></td>
-                            <td><?= $b['penerbit'] ?></td>
                             <td><?= $b['kategori'] ?></td>
-                            <td><img src="/img/<?= $b['gambar'] ?>" alt="<?= $b['judul'] ?>" class="img-fluid" style="max-width: 100px; max-height: 100px;"></td>
                             <td>
-                                <div class="table-group">
+                                
                                 <?= anchor('/admin_perpus/detail/' . $b['id'], '<div class="btn btn-info btn-sm">Detail</div>') ?>
-                                <?= anchor('/admin_perpus/edit/' . $b['id'], '<div class="btn btn-warning btn-sm">Edit</div>') ?>
                                 <?= anchor('/admin_perpus/delete/' . $b['id'], '<div class="btn btn-danger btn-sm">Delete</div>', ['onclick' => "return confirm('Are you sure you want to delete this item?');"]) ?>
-                                </div>
+                                
                             </td>
 
                         </tr>
