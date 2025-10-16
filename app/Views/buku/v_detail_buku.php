@@ -11,10 +11,9 @@
             <div class="row align-items-center">
                 <!-- Gambar Buku -->
                 <div class="col-md-4 text-center mb-4 mb-md-0">
-                    <img src="/img/<?= esc($detail['gambar']) ?>" 
-                         alt="<?= esc($detail['judul']) ?>" 
-                         class="img-fluid rounded shadow-sm"
-                         style="max-width: 250px; max-height: 250px; object-fit: cover;">
+                    <img src="/img/<?= esc($detail['gambar']) ?>" alt="<?= esc($detail['judul']) ?>"
+                        class="img-fluid rounded shadow-sm"
+                        style="max-width: 250px; max-height: 250px; object-fit: cover;">
                 </div>
 
                 <!-- Detail Buku -->
@@ -36,13 +35,28 @@
                                 <td>:</td>
                                 <td><?= esc($detail['penerbit']) ?></td>
                             </tr>
+                            <tr>
+                                <th>Ebook</th>
+                                <td>:</td>
+                                <td>
+                                    <?php if (!empty($detail['file_ebook'])): ?>
+                                    <a href="<?= base_url('public/ebook/' . esc($detail['file_ebook'])) ?>" target="_blank">
+                                        Read eBook
+                                    </a>
+                                    <?php else: ?>
+                                    <span class="text-muted">Tidak ada file eBook</span>
+                                    <?php endif; ?>
+                                </td>
+                            </tr>
+
                         </table>
                     </div>
                     <div class="mt-4">
                         <a href="<?= base_url('/admin_perpus'); ?>" class="btn btn-secondary btn-sm">
                             <i class="fas fa-arrow-left me-1"></i> Kembali
                         </a>
-                        <a href="<?= base_url('/admin_perpus/edit/' . $detail['id']); ?>" class="btn btn-warning btn-sm">
+                        <a href="<?= base_url('/admin_perpus/edit/' . $detail['id']); ?>"
+                            class="btn btn-warning btn-sm">
                             <i class="fas fa-edit me-1"></i> Edit
                         </a>
                     </div>

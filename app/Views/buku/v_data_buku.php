@@ -44,6 +44,10 @@
                                     </select>
                                 </div>
                                 <div class="mb-3">
+                                    <label for="ebook" class="form-label">Ebook</label>
+                                    <input type="file" class="form-control" id="ebook" name="ebook" required>
+                                </div>
+                                <div class="mb-3">
                                     <label for="gambar" class="form-label">Gambar</label>
                                     <input type="file" class="form-control" id="gambar" name="gambar" required>
                                 </div>

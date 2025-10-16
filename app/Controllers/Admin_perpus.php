@@ -43,11 +43,18 @@ class Admin_perpus extends BaseController
         $namagambar = $filegambar->getRandomName();
         $filegambar->move('img',$namagambar);
 
+        $fileEbook = $this->request->getFile('ebook');
+        if($fileEbook->isValid() && !$fileEbook->hasMoved()){
+            $nameFile = $fileEbook->getRandomName();
+            $fileEbook->move('public/ebook', $nameFile);
+        }
+
             $this->perpusModel->save([
                 'judul'     => $this->request->getPost('judul'),
                 'pengarang' => $this->request->getPost('pengarang'),
                 'penerbit'  => $this->request->getPost('penerbit'),
                 'id_kategori' => $this->request->getPost('kategori'),
+                'file_ebook'    => $nameFile,
                 'gambar'    => $namagambar
             ]);
 
