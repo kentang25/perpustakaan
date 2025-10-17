@@ -20,6 +20,7 @@ class Admin_perpus extends BaseController
         $data = [
             'title'     => 'Perpustakaan',
             'buku'      => $this->perpusModel->getAllBuku(),
+            'validation' => session()->getFlashdata('validation') ?? \config\Services::validation(),
             'kategori'  => $this->kategoriModel->findAll()
         ];
         // dd($data);
@@ -47,6 +48,18 @@ class Admin_perpus extends BaseController
         if($fileEbook->isValid() && !$fileEbook->hasMoved()){
             $nameFile = $fileEbook->getRandomName();
             $fileEbook->move('public/ebook', $nameFile);
+        }
+
+        $rules = [
+            'judul' => 'required|is_unique[buku.judul]',
+            'pengarang' => 'required',
+            'penerbit' => 'required',
+            'file_ebook' => 'max_size[file_ebook,2048]|ext_in[file_ebook,pdf,ePub,html]',
+            'gambar' => 'max_size[gambar,1024]|is_image[gambar]|mime_in[gambar,image/jpg,image/jpeg,image/png]',
+        ];
+
+        if(!$this->validate($rules)){
+            return redirect()->to('/admin_perpus')->withInput()->with('validation', $this->validator);
         }
 
             $this->perpusModel->save([
@@ -140,6 +153,7 @@ class Admin_perpus extends BaseController
             'pengarang' => $this->request->getPost('pengarang'),
             'penerbit'  => $this->request->getPost('penerbit'),
             'id_kategori' => $this->request->getPost('kategori'),
+            'file_ebook' => $this->request->getPost('file_ebook'),
             'gambar'    => $namegambar
         ]);
 

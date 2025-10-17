@@ -17,4 +17,4 @@ $routes->get('/admin_perpus/edit/(:num)', 'Admin_perpus::edit/$1');
 $routes->post('/admin_perpus/update/(:num)', 'Admin_perpus::update/$1');
 $routes->get('/admin_perpus/delete/(:num)', 'Admin_perpus::delete/$1');
 
-// $routes->get('/perpustakaan', 'Perpustakaan::index');
+$routes->get('/perpustakaan', 'Perpustakaan::index');

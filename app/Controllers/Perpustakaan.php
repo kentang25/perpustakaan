@@ -19,7 +19,7 @@ class Perpustakaan extends BaseController
             'buku' => $this->perpusModel->getAllBuku()
         ];
 
-        return view('buku/v_buku', $data);
+        return view('front_buku/v_buku', $data);
     }
 
     public function create()
