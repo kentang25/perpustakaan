@@ -14,6 +14,14 @@ Class M_perpustakaan extends Model{
                      ->join('tb_kategori', 'tb_kategori.id_kategori = tb_buku.id_kategori')
                      ->findAll();
     }
+
+    public function getNewsBuku()
+    {
+         return $this->select('tb_buku.*, tb_kategori.kategori')
+                     ->limit(3)
+                     ->join('tb_kategori', 'tb_kategori.id_kategori = tb_buku.id_kategori')
+                     ->findAll();
+    }
 }
 
 ?>

@@ -51,11 +51,11 @@ class Admin_perpus extends BaseController
         }
 
         $rules = [
-            'judul' => 'required|is_unique[buku.judul]',
+            'judul' => 'required|is_unique[tb_buku.judul]',
             'pengarang' => 'required',
             'penerbit' => 'required',
-            'file_ebook' => 'max_size[file_ebook,2048]|ext_in[file_ebook,pdf,ePub,html]',
-            'gambar' => 'max_size[gambar,1024]|is_image[gambar]|mime_in[gambar,image/jpg,image/jpeg,image/png]',
+            // 'file_ebook' => 'max_size[file_ebook,2048]|ext_in[file_ebook,pdf,ePub,html]',
+            // 'gambar' => 'max_size[gambar,1024]|is_image[gambar]|mime_in[gambar,image/jpg,image/jpeg,image/png]',
         ];
 
         if(!$this->validate($rules)){

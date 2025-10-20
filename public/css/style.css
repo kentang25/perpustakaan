@@ -11,6 +11,8 @@ body {
   line-height: 1.6;
 }
 
+/* navbar */
+
 /* Efek elegan navbar */
 .elegant-nav .nav-link {
   position: relative;
@@ -54,4 +56,39 @@ body {
 .elegant-nav .nav-link.active::after {
   width: 65%;
   background: linear-gradient(90deg, #ffffff, #7eb9ff);
+}
+/* end navbar */
+
+/* card header */
+
+.book-card img {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .book-card img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    }
+
+    mark {
+        background-color: #ffe58f;
+        padding: 0.2rem 0.4rem;
+        border-radius: 0.25rem;
+    }
+
+/* end card header */
+
+#find_more{
+  background-color: #9dc5ff;
+  padding:3px;
+  border-radius: 2px;
+  color:black;
+  opacity: 0.5;
+  /* font-weight: ; */
+}
+
+#find_more:hover{
+  font-weight: bold;
+  opacity: 2.5;
+  transition: 0.5s;
 }
