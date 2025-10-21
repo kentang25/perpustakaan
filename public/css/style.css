@@ -92,3 +92,22 @@ body {
   opacity: 2.5;
   transition: 0.5s;
 }
+
+/* kategori */
+
+.kategori-item {
+        background: linear-gradient(135deg, #4facfe, #00f2fe);
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+        border: 0.5px solid black;
+    }
+
+    .kategori-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        background-color: #73C8D2;
+    }
+
+/* end kategori */

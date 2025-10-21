@@ -69,7 +69,7 @@
         </div>
     </div>
 
-    <div class="row gap-3">
+    <!-- <div class="row gap-3">
         <div class="col-5 bg-primary">
             <h4>Hallo</h4>
         </div>
@@ -77,24 +77,29 @@
         <div class="col-5 bg-danger">
             <h4>Hallo 2</h4>
         </div>
+    </div> -->
+
+    <div class="container d-flex justify-content-center align-items-start gap-3 mt-5">
+    <div class="about bg-primary d-flex justify-content-between align-items-start gap-3 p-3 text-white" style="width: 50%;">
+        <div class="group-about flex-fill">
+            <h2>Dungeons</h2>
+            <p><b>100% Free</b> - No fees, no registration, completely free</p>
+            <p><b>No Apps Required</b> - only regular Web browsers or eBook readers needed</p>
+        </div>
     </div>
 
-    <style>
-    .kategori-item {
-        background: linear-gradient(135deg, #4facfe, #00f2fe);
-        font-weight: 500;
-        letter-spacing: 0.5px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        cursor: pointer;
-        border: 0.5px solid black;
-    }
+    <div class="about-2 bg-primary d-flex justify-content-between align-items-start gap-3 p-3 text-white" style="width: 50%;">
+        <div class="group-about flex-fill">
+            <h2>Find Free eBooks</h2>
+            
+                <p><b>Main Categories</b> - The ones you'd find in any large bookstore.</p>
+                <!-- <p><b>Reading Lists.</b> Hand-curated by volunteers.</p> -->
+                <p><b>Search Options</b> - By author, title, subject, language, type, popularity, and more.</p>
+        </div>
+    </div>
+</div>
 
-    .kategori-item:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-        background-color: #73C8D2;
-    }
-    </style>
+
 
 </div>
 
