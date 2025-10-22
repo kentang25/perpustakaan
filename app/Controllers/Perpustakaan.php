@@ -27,5 +27,24 @@ class Perpustakaan extends BaseController
         return view('front_buku/v_buku', $data);
     }
 
+    public function detail($id)
+    {
+        $data = [
+            'title'     => 'Detail Books',
+            'detail'    => $this->perpusModel->find($id)
+        ];
+
+        return view('front_buku/v_detail_buku', $data);
+    }
+
+    public function list_book()
+    {
+        $data = [
+            'title'    => 'Categori Book',
+            'kategori' => $this->perpusModel->getAllBuku()
+        ];
+        
+        return view('front_buku/v_kategori', $data);
+    }
     
 }

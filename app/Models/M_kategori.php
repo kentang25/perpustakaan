@@ -8,6 +8,8 @@
         protected $table = 'tb_kategori';
         protected $primaryKey = 'id_kategori';
         protected $allowedFields = ['kategori'];
+
+        
     }
 
 ?>

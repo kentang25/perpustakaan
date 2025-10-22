@@ -24,12 +24,14 @@
                 <?php foreach ($buku as $b) : ?>
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-4 d-flex mt-3 flex-column align-items-center">
                     <div class="book-card text-center">
-                        <img src="/img/<?= esc($b['gambar']); ?>" alt="<?= esc($b['judul']); ?>"
-                            class="img-fluid rounded-3 shadow-sm mb-3"
-                            style="width: 160px; height: 230px; object-fit: cover;">
-                        <p class="fw-semibold small text-dark mb-0">
-                            <?= esc($b['judul']); ?>
-                        </p>
+                        <a href="/dungeons/detail-book/<?= $b['id'] ?>">
+                            <img src="/img/<?= esc($b['gambar']); ?>" alt="<?= esc($b['judul']); ?>"
+                                class="img-fluid rounded-3 shadow-sm mb-3"
+                                style="width: 160px; height: 230px; object-fit: cover;">
+                            <p class="fw-semibold small text-dark mb-0">
+                                <?= esc($b['judul']); ?>
+                            </p>
+                        </a>
                     </div>
                 </div>
                 <?php endforeach; ?>
@@ -80,7 +82,7 @@
     </div> -->
 
     <div class="container d-flex justify-content-center align-items-start gap-3 mt-5">
-    <div class="about bg-primary d-flex justify-content-between align-items-start gap-3 p-3 text-white" style="width: 50%;">
+    <div class="about bg-primary d-flex rounded-3 justify-content-between align-items-start gap-3 p-3 text-white" style="width: 50%;">
         <div class="group-about flex-fill">
             <h2>Dungeons</h2>
             <p><b>100% Free</b> - No fees, no registration, completely free</p>
@@ -88,7 +90,7 @@
         </div>
     </div>
 
-    <div class="about-2 bg-primary d-flex justify-content-between align-items-start gap-3 p-3 text-white" style="width: 50%;">
+    <div class="about-2 bg-primary d-flex rounded-3 justify-content-between align-items-start gap-3 p-3 text-white" style="width: 50%;">
         <div class="group-about flex-fill">
             <h2>Find Free eBooks</h2>
             

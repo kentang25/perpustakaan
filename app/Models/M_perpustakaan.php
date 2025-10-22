@@ -22,6 +22,14 @@ Class M_perpustakaan extends Model{
                      ->join('tb_kategori', 'tb_kategori.id_kategori = tb_buku.id_kategori')
                      ->findAll();
     }
+
+    public function get_all_kategori()
+        {
+            return $this->select('tb_buku.* ,tb_kategori.kategori')
+                        ->join('tb_kategori','tb_kategori.id_kategori = tb_buku.id_kategori')
+                        ->where('tb_kategori.kategori')
+                        ->findAll();
+        }
 }
 
 ?>
