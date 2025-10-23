@@ -39,9 +39,20 @@ class Perpustakaan extends BaseController
 
     public function list_book()
     {
+        $all = $this->perpusModel->getAllBuku();
+
+        $kategori = [];
+
+        foreach($all as $b){
+            $kategori[$b['kategori']][] = ['judul'=>$b['judul'],'gambar'=>$b['gambar']];;
+        }
+
+        // $data['kategori'] = $kategori;
+        // $title = 'Categori';
+
         $data = [
-            'title'    => 'Categori Book',
-            'kategori' => $this->perpusModel->getAllBuku()
+            'title'     => 'Category',
+            'kategori'  => $kategori
         ];
         
         return view('front_buku/v_kategori', $data);
