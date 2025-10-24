@@ -30,6 +30,11 @@ Class M_perpustakaan extends Model{
                         ->where('tb_kategori.kategori')
                         ->findAll();
         }
+
+    public function novel()
+    {
+        return $this->get_where('tb_buku', ['kategori'=>'novel']);
+    }
 }
 
 ?>

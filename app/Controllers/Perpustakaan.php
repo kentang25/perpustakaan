@@ -44,7 +44,11 @@ class Perpustakaan extends BaseController
         $kategori = [];
 
         foreach($all as $b){
-            $kategori[$b['kategori']][] = ['judul'=>$b['judul'],'gambar'=>$b['gambar']];;
+            $kategori[$b['kategori']][] = [
+                'judul'     =>$b['judul'],
+                'gambar'    =>$b['gambar'],
+                'id'        =>$b['id']
+            ];
         }
 
         // $data['kategori'] = $kategori;
