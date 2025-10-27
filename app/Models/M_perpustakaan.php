@@ -23,18 +23,20 @@ Class M_perpustakaan extends Model{
                      ->findAll();
     }
 
-    public function get_all_kategori()
+    public function get_all_kategori($kategori)
         {
             return $this->select('tb_buku.* ,tb_kategori.kategori')
                         ->join('tb_kategori','tb_kategori.id_kategori = tb_buku.id_kategori')
-                        ->where('tb_kategori.kategori')
+                        ->where('tb_kategori.kategori',$kategori)
                         ->findAll();
         }
 
-    public function novel()
+    public function keyword($keyword)
     {
-        return $this->get_where('tb_buku', ['kategori'=>'novel']);
+        return $this->table('tb_buku')->like('judul',$keyword)->orLike('pengrang',$keyword);
     }
+
+    
 }
 
 ?>

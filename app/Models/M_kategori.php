@@ -9,6 +9,8 @@
         protected $primaryKey = 'id_kategori';
         protected $allowedFields = ['kategori'];
 
+
+        
         
     }
 

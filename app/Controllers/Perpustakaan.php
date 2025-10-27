@@ -59,7 +59,40 @@ class Perpustakaan extends BaseController
             'kategori'  => $kategori
         ];
         
-        return view('front_buku/v_kategori', $data);
+        return view('front_buku/kategori/v_kategori', $data);
+    }
+
+    public function list_kategori($kategori)
+    {
+       $buku = $this->perpusModel->get_all_kategori($kategori);
+       d($buku);
+       
+       $data = [
+            'title'     => 'Category '. $kategori,
+            'kategori'  => $kategori,
+            'buku'      => $buku
+       ];
+        return view('front_buku/kategori/v_find_kategori', $data);
+    }
+
+    public function about()
+    {
+        $data['title'] = "About Dungeons";
+
+        return view('front_buku/v_about', $data);
+    }
+
+    public function cari()
+    {
+        $keyword = $this->perpusModel->getVar('keyword');
+
+        if($keyword){
+            $buku = $this->perpusModel->search($keyword);
+        }else{
+            echo "buku yang anda cari tidak ada";
+        }
+
+        return view('front_buku/v_search', $buku);
     }
     
 }

@@ -38,8 +38,8 @@
                 </li>
                 
                 <li class="nav-item mx-2">
-                    <a class="nav-link text-light <?= (uri_string() == 'tentang') ? 'active fw-semibold' : '' ?>"
-                        href="<?= base_url('tentang') ?>">About</a>
+                    <a class="nav-link text-light <?= (uri_string() == 'about') ? 'active fw-semibold' : '' ?>"
+                        href="<?= base_url('dungeons/about/') ?>">About</a>
                 </li>
             </ul>
 

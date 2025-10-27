@@ -19,5 +19,14 @@ $routes->get('/admin_perpus/delete/(:num)', 'Admin_perpus::delete/$1');
 
 $routes->get('/dungeons', 'Perpustakaan::index');
 $routes->get('/dungeons/detail-book/(:any)', 'Perpustakaan::detail/$1');
+
+// --- category ---
 $routes->get('/dungeons/category/', 'Perpustakaan::list_book');
+$routes->get('/dungeons/category/(:segment)', 'Perpustakaan::list_kategori/$1');
+// --- end category ---
+
+$routes->get('dungeons/about/', 'Perpustakaan::about');
+
+
+
 
