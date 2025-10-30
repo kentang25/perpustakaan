@@ -42,7 +42,7 @@
         <?php foreach($kategori as $k) : ?>
         <div class="col">
             <div class="p-3 bg-gradient text-center rounded-4 shadow-sm kategori-item">
-                <a href="#" class="text-dark" style="text-decoration: none;"><?= esc($k['kategori']); ?></a>
+                <a href="/dungeons/category/<?= urlencode($k['kategori'])?>" class="text-dark" style="text-decoration: none;"><?= esc($k['kategori']); ?></a>
             </div>
         </div>
         <?php endforeach; ?>

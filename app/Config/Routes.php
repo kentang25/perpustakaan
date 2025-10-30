@@ -26,6 +26,7 @@ $routes->get('/dungeons/category/(:segment)', 'Perpustakaan::list_kategori/$1');
 // --- end category ---
 
 $routes->get('dungeons/about/', 'Perpustakaan::about');
+$routes->get('dungeons/cari/', 'Perpustakaan::cari');
 
 
 

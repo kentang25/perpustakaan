@@ -16,7 +16,7 @@
         <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
 
             <!-- Form Search di Tengah -->
-            <form class="d-flex mx-auto position-relative" role="search" action="<?= base_url('buku/cari') ?>"
+            <form class="d-flex mx-auto position-relative" role="search" action="dungeons/cari"
                 method="get" style="max-width: 420px; width: 100%;">
                 <input class="form-control rounded-pill ps-4 pe-5 shadow-sm border-0" type="search" name="keyword"
                     placeholder="🔍  Search for title or author..." aria-label="Search" required style="height: 45px;">

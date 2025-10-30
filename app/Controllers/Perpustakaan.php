@@ -65,7 +65,7 @@ class Perpustakaan extends BaseController
     public function list_kategori($kategori)
     {
        $buku = $this->perpusModel->get_all_kategori($kategori);
-       d($buku);
+       
        
        $data = [
             'title'     => 'Category '. $kategori,
@@ -84,15 +84,22 @@ class Perpustakaan extends BaseController
 
     public function cari()
     {
-        $keyword = $this->perpusModel->getVar('keyword');
+        $keyword = $this->request->getVar('keyword');
+        $all_buku = $this->perpusModel->findAll();
 
         if($keyword){
-            $buku = $this->perpusModel->search($keyword);
+            $search = $this->perpusModel->search($keyword);
         }else{
             echo "buku yang anda cari tidak ada";
         }
 
-        return view('front_buku/v_search', $buku);
+        $data = [
+            'title'     => 'Cari',
+            'keyword'   => $keyword,
+            'buku'      => $search
+        ];
+
+        return view('front_buku/v_search', $data);
     }
     
 }

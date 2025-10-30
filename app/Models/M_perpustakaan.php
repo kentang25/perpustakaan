@@ -31,9 +31,9 @@ Class M_perpustakaan extends Model{
                         ->findAll();
         }
 
-    public function keyword($keyword)
+    public function search($keyword)
     {
-        return $this->table('tb_buku')->like('judul',$keyword)->orLike('pengrang',$keyword);
+        return $this->table('tb_buku')->like('judul',$keyword)->orLike('pengarang',$keyword)->findAll();
     }
 
     
